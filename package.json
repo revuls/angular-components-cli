@@ -1,0 +1,17 @@
+{
+  "name": "angular-components-cli",
+  "version": "0.0.7",
+  "description": "CLI utility to develop in angularJS",
+  "main": "angularjs.js",
+  "bin" : {
+    "angularjs" : "./angularjs.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "revul",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.9.0"
+  }
+}
