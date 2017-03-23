@@ -26,3 +26,10 @@ my-component.controller.js
 my-component.spec.js
 my-component.html
 ```
+
+### TODO
+
+Make support for:
+- Services
+- Factories
+- Directives
