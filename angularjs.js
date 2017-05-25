@@ -81,7 +81,7 @@ program.command('component')
     var ctrl = $componentController('${nameComponent}', null, bindings);
 
     expect(ctrl).toBeDefined();
-    
+
     ctrl.$onInit();
   });
 });
