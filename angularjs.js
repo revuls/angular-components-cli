@@ -8,7 +8,7 @@ String.prototype.capitalize = function() {
 };
 
 program
-    .version('0.0.8');
+    .version('0.0.9');
 
 program.command('component')
     .description('creates the folder and file for an angularJS component')
