@@ -1,6 +1,6 @@
 # angular-components-cli
 
-Nodejs CLI to generate all needed files in angular when creating components with the best practices
+Nodejs CLI to generate all needed files in angular when creating components and services with the best practices
 
 ### Global install
 
@@ -12,6 +12,10 @@ npm install angular-components-cli -g
 
 ```
 angularjs component [component-name]
+```
+
+```
+angularjs service [service-name]
 ```
 
 ### Example
@@ -27,9 +31,16 @@ my-component.spec.js
 my-component.html
 ```
 
+```
+angularjs service my-service
+
+// Generates the file with needed code:
+
+my-service.service.js
+```
+
 ### TODO
 
 Make support for:
-- Services
 - Factories
 - Directives

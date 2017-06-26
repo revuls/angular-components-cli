@@ -1,6 +1,6 @@
 {
   "name": "angular-components-cli",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "CLI utility to develop in angularJS",
   "main": "angularjs.js",
   "bin" : {

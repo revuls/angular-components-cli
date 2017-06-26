@@ -8,7 +8,7 @@ String.prototype.capitalize = function() {
 };
 
 program
-    .version('0.0.9');
+    .version('0.0.10');
 
 program.command('component')
     .description('creates the folder and file for an angularJS component')
@@ -38,7 +38,7 @@ program.command('component')
             "  'use strict';\n\n" +
 
             "  var " + nameComponent + " = {\n" +
-            "    templateUrl: '" + __dirname + "/" + fileHtml +"',\n" +
+            "    templateUrl: '" + process.cwd() + "/" + fileHtml +"',\n" +
             "    bindings: {\n" +
             "    },\n" +
             "    controller: '" + nameController +"'\n" +
@@ -104,6 +104,57 @@ program.command('component')
         fs.writeFile(fileHtml, sourceHtml, function(err) {
             if(err) console.log(err.red);
         });
+    });
+
+program.command('service')
+    .description('creates angularJS service')
+    // .option("-n, --name", "Name of the element or component")
+    .action(function(name) {
+        var arrayName = name.toLowerCase().split('-');
+        let fileService = name.toLowerCase() + '.service.js';
+        let nameService = '';
+
+        arrayName.forEach(function (item, key) {
+            if (key === 0) {
+                nameService = item;
+            } else {
+                nameService += item.capitalize();
+            }            
+        });
+
+        let service = nameService.capitalize();
+        nameService += 'Service';
+
+        const sourceService = `(function () {
+  'use strict';
+
+  angular
+    .module('app')
+    .service('${nameService}', ${nameService});
+
+  /** @ngInject */
+  function ${nameService}($http) {
+    var url = '/${service}';
+    var service = {
+      get${service}: get${service}
+    };
+    return service;
+
+    /**
+     * @description method to call ApiService to get ${service}
+     * @param  {object} ${service} - ${service} json
+     * @return {object} - return a promise object with the api response
+     */
+    function get${service}() {
+      return $http.get(url);
+    }
+  }
+})();
+`;        
+
+        fs.writeFile(fileService, sourceService, function(err) {
+            if(err) console.log(err.red);
+        });        
     });
 
 program.parse(process.argv);
